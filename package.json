@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "codemirror": "*",
-    "codemirror-spell-checker": "*",
     "commonmark": "*"
   },
   "devDependencies": {

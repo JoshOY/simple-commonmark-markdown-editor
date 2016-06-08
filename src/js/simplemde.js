@@ -10,7 +10,6 @@ require("codemirror/addon/display/placeholder.js");
 require("codemirror/addon/selection/mark-selection.js");
 require("codemirror/mode/gfm/gfm.js");
 require("codemirror/mode/xml/xml.js");
-var CodeMirrorSpellChecker = require("codemirror-spell-checker");
 var commonmark = require("commonmark");
 
 // Some variables
@@ -1443,21 +1442,11 @@ SimpleMDE.prototype.render = function(el) {
 		}
 	}, false);
 
-	var mode, backdrop;
-	if(options.spellChecker !== false) {
-		mode = "spell-checker";
-		backdrop = options.parsingConfig;
-		backdrop.name = "gfm";
-		backdrop.gitHubSpice = false;
-
-		CodeMirrorSpellChecker({
-			codeMirrorInstance: CodeMirror
-		});
-	} else {
-		mode = options.parsingConfig;
-		mode.name = "gfm";
-		mode.gitHubSpice = false;
-	}
+	// Spell checker removed
+	var backdrop = undefined;
+	var mode = options.parsingConfig;
+	mode.name = "gfm";
+	mode.gitHubSpice = false;
 
 	this.codemirror = CodeMirror.fromTextArea(el, {
 		mode: mode,
