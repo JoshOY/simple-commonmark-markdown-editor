@@ -11,8 +11,7 @@ require("codemirror/addon/selection/mark-selection.js");
 require("codemirror/mode/gfm/gfm.js");
 require("codemirror/mode/xml/xml.js");
 var CodeMirrorSpellChecker = require("codemirror-spell-checker");
-var marked = require("marked");
-
+var commonmark = require("commonmark");
 
 // Some variables
 var isMac = /Mac/.test(navigator.platform);
@@ -1388,33 +1387,14 @@ function SimpleMDE(options) {
 
 /**
  * Default markdown render.
+ * Change to commonmark parser.
  */
 SimpleMDE.prototype.markdown = function(text) {
-	if(marked) {
-		// Initialize
-		var markedOptions = {};
-
-
-		// Update options
-		if(this.options && this.options.renderingConfig && this.options.renderingConfig.singleLineBreaks === false) {
-			markedOptions.breaks = false;
-		} else {
-			markedOptions.breaks = true;
-		}
-
-		if(this.options && this.options.renderingConfig && this.options.renderingConfig.codeSyntaxHighlighting === true && window.hljs) {
-			markedOptions.highlight = function(code) {
-				return window.hljs.highlightAuto(code).value;
-			};
-		}
-
-
-		// Set options
-		marked.setOptions(markedOptions);
-
-
-		// Return
-		return marked(text);
+	if(commonmark) {
+		this.reader = this.reader || (new commonmark.Parser());
+		this.writer = this.reader || (new commonmark.HtmlRenderer());
+		var parsed = this.reader.parse(text);
+		return this.writer.render(parsed);
 	}
 };
 
