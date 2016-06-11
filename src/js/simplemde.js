@@ -107,7 +107,9 @@ function createIcon(options, enableTooltips, shortcuts) {
 	}
 
 	el.tabIndex = -1;
-	el.className = options.className;
+	var iconElement = document.createElement("i");
+	iconElement.className = options.className;
+	el.appendChild(iconElement);
 	return el;
 }
 

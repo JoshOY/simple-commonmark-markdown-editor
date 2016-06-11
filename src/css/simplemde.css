@@ -128,6 +128,11 @@
     cursor: pointer;
 }
 
+.editor-toolbar a> i {
+    line-height: 30px;
+    text-align: middle;
+    font-size: 0.95em;
+}
 
 /*.editor-toolbar a.active,*/
 
