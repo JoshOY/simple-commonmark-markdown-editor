@@ -130,8 +130,8 @@
 
 .editor-toolbar a> i {
     line-height: 30px;
-    text-align: middle;
-    font-size: 0.95em;
+    vertical-align: middle;
+    font-size: 1.125em;
 }
 
 /*.editor-toolbar a.active,*/
