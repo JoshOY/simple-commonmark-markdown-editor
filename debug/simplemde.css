@@ -407,7 +407,7 @@ span.CodeMirror-selectedtext { background: none; }
 .editor-toolbar:hover,
 .editor-wrapper input.title:focus,
 .editor-wrapper input.title:hover {
-    opacity: .8
+    /*opacity: .8*/
 }
 
 .editor-toolbar.fullscreen {
@@ -473,10 +473,17 @@ span.CodeMirror-selectedtext { background: none; }
     cursor: pointer;
 }
 
-.editor-toolbar a.active,
+
+/*.editor-toolbar a.active,*/
+
 .editor-toolbar a:hover {
-    background: #fcfcfc;
-    border-color: #95a5a6;
+    outline: none;
+    color: #000000 !important;
+}
+
+.editor-toolbar a.active {
+    background: rgb(59, 151, 212);
+    color: #ffffff !important;
 }
 
 .editor-toolbar a:before {
@@ -524,6 +531,7 @@ span.CodeMirror-selectedtext { background: none; }
 .editor-toolbar.disabled-for-preview a:not(.no-disable) {
     pointer-events: none;
     background: #fff;
+    color: #2c3e50!important;
     border-color: transparent;
     text-shadow: inherit;
 }

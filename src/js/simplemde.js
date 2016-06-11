@@ -1398,7 +1398,7 @@ SimpleMDE.prototype.markdown = function(text) {
 		var writer = new commonmark.HtmlRenderer({
 			sourcepos: sourcepos,
 			smart: smart,
-			safe: safe,
+			safe: safe
 		});
 
 		var parsed = reader.parse(text);

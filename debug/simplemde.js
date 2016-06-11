@@ -15625,11 +15625,21 @@ function SimpleMDE(options) {
  * Change to commonmark parser.
  */
 SimpleMDE.prototype.markdown = function(text) {
+	var sourcepos = this.options.sourcepos || undefined;
+	var smart = this.options.smart || undefined;
+	var safe = this.options.safe || undefined;
+
 	if(commonmark) {
-		this.reader = this.reader || (new commonmark.Parser());
-		this.writer = this.reader || (new commonmark.HtmlRenderer());
-		var parsed = this.reader.parse(text);
-		return this.writer.render(parsed);
+		var reader = new commonmark.Parser();
+		var writer = new commonmark.HtmlRenderer({
+			sourcepos: sourcepos,
+			smart: smart,
+			safe: safe
+		});
+
+		var parsed = reader.parse(text);
+		// transform parsed if you like...
+		return writer.render(parsed);
 	}
 };
 
