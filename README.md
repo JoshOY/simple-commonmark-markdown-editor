@@ -222,7 +222,7 @@ var simplemde = new SimpleMDE({
 	toolbar: [{
 			name: "bold",
 			action: SimpleMDE.toggleBold,
-			className: "fa fa-bold",
+			iconClassName: "fa fa-bold",
 			title: "Bold",
 		},
 		{
@@ -230,7 +230,8 @@ var simplemde = new SimpleMDE({
 			action: function customFunction(editor){
 				// Add your own code
 			},
-			className: "fa fa-star",
+			iconClassName: "fa fa-star",
+			className: "no-disable",
 			title: "Custom Button",
 		},
 		"|", // Separator
