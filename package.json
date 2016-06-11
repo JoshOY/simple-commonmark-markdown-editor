@@ -1,6 +1,6 @@
 {
   "name": "simple-cmeditor",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "description": "A markdown editor forked from simplemde (https://simplemde.com/), removed spell checker and use commonmark parser with more options.",
   "keywords": [
     "embeddable",
