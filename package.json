@@ -1,6 +1,6 @@
 {
   "name": "simple-cmeditor",
-  "version": "1.11.3",
+  "version": "1.11.4",
   "description": "A markdown editor forked from simplemde (https://simplemde.com/), removed spell checker and use commonmark parser with more options.",
   "keywords": [
     "embeddable",
@@ -10,7 +10,7 @@
     "wysiwyg"
   ],
   "homepage": "https://github.com/JoshOY/simple-commonmark-markdown-editor",
-  "main": "./src/js/simplemde.js",
+  "main": "dist/simplemde.min.js",
   "license": "MIT",
   "dependencies": {
     "codemirror": "*",

@@ -107,7 +107,7 @@ function createIcon(options, enableTooltips, shortcuts) {
 	}
 
 	el.tabIndex = -1;
-	el.className = options.className;
+	el.className = options.className || "";
 
 	var iconElement = document.createElement("i");
 	iconElement.className = options.iconClassName || options.className;
@@ -1397,18 +1397,13 @@ function SimpleMDE(options) {
  * Change to commonmark parser.
  */
 SimpleMDE.prototype.markdown = function(text) {
-	var sourcepos = this.options.sourcepos || undefined;
-	var smart = this.options.smart || undefined;
-	var safe = this.options.safe || undefined;
-
+	// var sourcepos = this.options.sourcepos || undefined;
+	// var smart = this.options.smart || undefined;
+	// var safe = this.options.safe || undefined;
+	var commonmarkOptions = this.options.commonmark;
 	if(commonmark) {
 		var reader = new commonmark.Parser();
-		var writer = new commonmark.HtmlRenderer({
-			sourcepos: sourcepos,
-			smart: smart,
-			safe: safe
-		});
-
+		var writer = new commonmark.HtmlRenderer(commonmarkOptions);
 		var parsed = reader.parse(text);
 		// transform parsed if you like...
 		return writer.render(parsed);
